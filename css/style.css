@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&display=swap');
+
+:root{
+    /* primary */
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+
+    /* neutral */
+    --very-dark-cyan: hsl(158, 36%, 24%);
+    --very-light-gray: hsl(212, 45%, 89%);
+    --white: hsl(0, 0%, 100%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+
+    /* fonts */
+    --font-family-Montserrat: 'Montserrat', sans-serif;
+    --font-family-Fraunces: 'Fraunces', serif;
+}
+
+body{
+    background: var(--cream);
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    font-family: var(--font-family-Montserrat);
+    color: var(--dark-grayish-blue);
+    font-weight: 500;
+}
+
+.product{
+    --max-width: 550px;
+    --content-padding: 1.5rem;
+    --content-spacing: 1rem;
+
+    max-width: var(--max-width);
+    border-radius: .5rem;
+    overflow: hidden;
+    display: grid;
+}
+
+@media(min-width: 550px){
+    .product{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.product-content{
+    background: var(--white);
+    display: grid;
+    padding: var(--content-padding);
+    gap: var(--content-spacing);
+}
+
+.category{
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.product-title{
+    font-size: 2rem;
+    color: hsl(212, 21%, 14%);
+    font-family: var(--font-family-Fraunces);
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.description{
+    line-height: 1.5;
+    font-size: .8125rem;
+}
+
+.flex-group{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.current-price{
+    font-size: 2rem;
+    color: var(--dark-cyan);
+    font-family: var(--font-family-Fraunces);
+    font-weight: 700;
+}
+
+.original-price{
+    text-decoration: line-through;
+}
+
+.btn{
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    background: var(--dark-cyan);
+    color: var(--white);
+    border: 0;
+    outline: transparent;
+    border-radius: .5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.btn:is(:hover, :focus){
+    background: var(--very-dark-cyan);
+}
+
+.btn[data-icon="shopping-cart"]::before{
+    content: '';
+    background: url('/images/icon-cart.svg');
+    width: 15px;
+    height: 16px;
+}
